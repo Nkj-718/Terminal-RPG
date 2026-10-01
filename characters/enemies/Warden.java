@@ -1,0 +1,63 @@
+package characters.enemies;
+
+import characters.player.*;
+import attacks.Attack;
+
+public class Warden extends Enemy{
+    private Attack[] attacks=new Attack[2];
+
+    public Warden(){
+        super();
+        name="Warden";
+        health=200;
+        strength=35;
+        speed=35;
+        endurance=60;
+        reward=20;
+        position=5;
+        assignAttacks();
+    }
+
+    @Override 
+    protected void assignAttacks(){
+        attacks[0]=new Attack("Axe Hammer", "Heavy", 40, "Stagger");
+        attacks[1]=new Attack("Boulder Throw", "Heavy", 35, "None");
+    }
+
+    @Override 
+    public void chooseAction(Player player){
+        double distance=calculateDistance(player.getPosition());
+        //Perform either attacks[0](Axe Hammer-70%), move away(15%), or move closer(15%).
+        if(distance<5){
+            double value=Math.random();
+            if(value<0.70)
+                attacks[0].performAttack(this, player);
+            else if(value>=0.70 && value<0.85){
+                position+=3;
+                System.out.println(getName() + " moved away.");
+            }
+            else{
+                position-=3;
+                System.out.println(getName() + " moved closer.");
+            }
+        }
+        //Perform either attacks[1](Boulder Throw-70%),move away(5%), or move closer(25%)
+        else if(distance>=5 && distance<15){
+            double value=Math.random();
+            if(value<0.70)
+                attacks[1].performAttack(this, player);
+            else if(value>=0.70 && value<0.75){
+                position+=3;
+                System.out.println(getName() + " moved away.");
+            }
+            else{
+                position-=3;
+                System.out.println(getName() + " moved closer.");
+            }
+        }
+        else{
+            position-=3;
+            System.out.println(getName() + " moved closer.");
+        }
+    }
+}
