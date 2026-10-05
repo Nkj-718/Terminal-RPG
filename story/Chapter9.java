@@ -1,9 +1,12 @@
 package story;
 
+import java.util.Scanner;
+import characters.player.*;
+
 public class Chapter9 extends Story{
 
     @Override
-    public void startStory(){
+    public void startStory(Player player, Scanner sc){
         System.out.println();
         System.out.println("Story Chapter 9 Here.");
         System.out.println();
