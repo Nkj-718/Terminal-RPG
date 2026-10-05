@@ -24,15 +24,8 @@ public class Player extends GameCharacter{
         ultimateCharges=0;
     }
 
-    public void penalty(){
-        health-=5;
-        strength-=5;
-        speed-=5;
-        endurance-=5;
-    }
-
     boolean isUltimateCharged(){
-        return ultimateCharges>=5;
+        return ultimateCharges>=4;
     }
 
     public void increaseUltimateCharge(){
@@ -155,7 +148,7 @@ public class Player extends GameCharacter{
                 apCost=4;
         
             if(attack==4 && !isUltimateCharged()){
-                System.out.println("Ultimate Attack is not charged! Kill 5 enemies to use an Ultimate Attack!");
+                System.out.println("Ultimate Attack is not charged! Kill 4 enemies to use an Ultimate Attack!");
                 continue;
             }
         
@@ -184,7 +177,7 @@ public class Player extends GameCharacter{
         if(target instanceof Enemy && target.getHealth()<=0){
             increaseUltimateCharge();
             System.out.println(target.getName() + " has been vanquished!");
-            System.out.println("Ultimate Charge: " + ultimateCharges + "/5");
+            System.out.println("Ultimate Charge: " + ultimateCharges + "/4");
         }
 
         //After using an ultimate, reset ultimate charge.
