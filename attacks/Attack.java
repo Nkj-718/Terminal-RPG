@@ -140,6 +140,7 @@ public class Attack {
     }
 
     public void performAttack(GameCharacter self, GameCharacter target){
+        System.out.println("============================================================");
         System.out.println(self.getName() + " uses " + attackName + "!");
         
         if(self instanceof Player){
@@ -170,6 +171,7 @@ public class Attack {
                 triggerEffect(self, target);
             }
         }
+        System.out.println("============================================================");
     }
 
     public void performAttack(GameCharacter self, Enemy[] enemies){
