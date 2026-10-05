@@ -4,7 +4,6 @@ import characters.GameCharacter;
 import characters.enemies.*;
 import characters.player.*;
 import java.util.Random;
-import fights.*;
 
 public class Attack {
     private String attackName;
