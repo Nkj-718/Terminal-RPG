@@ -10,9 +10,9 @@ public class Warden extends Enemy{
         super();
         name="Warden";
         health=200;
-        strength=35;
+        strength=30;
         speed=35;
-        endurance=60;
+        endurance=50;
         reward=20;
         position=5;
         assignAttacks();
@@ -20,8 +20,8 @@ public class Warden extends Enemy{
 
     @Override 
     protected void assignAttacks(){
-        attacks[0]=new Attack("Axe Hammer", "Heavy", 40, "Stagger");
-        attacks[1]=new Attack("Boulder Throw", "Heavy", 35, "None");
+        attacks[0]=new Attack("Axe Hammer", "Heavy", 35, "Stagger");
+        attacks[1]=new Attack("Boulder Throw", "Heavy", 30, "None");
     }
 
     @Override 
@@ -42,7 +42,7 @@ public class Warden extends Enemy{
             }
         }
         //Perform either attacks[1](Boulder Throw-70%),move away(5%), or move closer(25%)
-        else if(distance>=5 && distance<15){
+        else if(distance>=5 && distance<10){
             double value=Math.random();
             if(value<0.70)
                 attacks[1].performAttack(this, player);
