@@ -68,7 +68,7 @@ public class Game {
 
         for (int i = 0; i < fights.length; i++) {
             System.out.println("-------- Chapter " + (i + 1) + " --------");
-            chapters[i].startStory();
+            chapters[i].startStory(player, sc);
 
             player.savePlayer();
 
@@ -80,7 +80,6 @@ public class Game {
 
             if (!levelFinish) {
                 System.out.println("Attempt Failed! Booting up the level again...");
-                player.penalty();
 
                 switch (i) {
                     case 0:
@@ -126,7 +125,7 @@ public class Game {
         }
 
         System.out.println("-------- Chapter 9 --------");
-        chapters[8].startStory();
+        chapters[8].startStory(player, sc);
         System.out.println("-------- Chapter 9 completed! --------");
         System.out.println("-x-x-x-x-x-x-x-x- THANK YOU FOR PLAYING! -x-x-x-x-x-x-x-x-");
 
