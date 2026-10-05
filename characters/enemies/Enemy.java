@@ -1,8 +1,6 @@
 package characters.enemies;
 
-import attacks.Attack;
 import characters.GameCharacter;
-import characters.player.Player;
 
 public class Enemy extends GameCharacter{
     
