@@ -489,6 +489,7 @@ public class Chapter8 extends Story{
 
         System.out.println("The Baron charges.");
         sc.nextLine();
+        
     }
     
 }
