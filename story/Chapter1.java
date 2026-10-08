@@ -440,7 +440,7 @@ public class Chapter1 extends Story{
                 break;
 
             case "Gauntlets":
-                System.out.println("Dark gauntlets form around your fists.");
+                System.out.println("Bright Crimson gauntlets form around your fists.");
                 System.out.println("You flex your fingers.");
                 System.out.println("The metal moves as though it has always belonged to you.");
                 break;
