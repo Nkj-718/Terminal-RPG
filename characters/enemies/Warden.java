@@ -33,12 +33,10 @@ public class Warden extends Enemy{
             if(value<0.70)
                 attacks[0].performAttack(this, player);
             else if(value>=0.70 && value<0.85){
-                position+=3;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 3);
             }
             else{
-                position-=3;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 3);
             }
         }
         //Perform either attacks[1](Boulder Throw-70%),move away(5%), or move closer(25%)
@@ -47,17 +45,14 @@ public class Warden extends Enemy{
             if(value<0.70)
                 attacks[1].performAttack(this, player);
             else if(value>=0.70 && value<0.75){
-                position+=3;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 3);
             }
             else{
-                position-=3;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 3);
             }
         }
         else{
-            position-=3;
-            System.out.println(getName() + " moved closer.");
+            move(player, true, 3);
         }
     }
 }

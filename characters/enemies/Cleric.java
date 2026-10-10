@@ -33,7 +33,7 @@ public class Cleric extends Enemy{
         //Perform either attacks[0](Healing Spell-25%), attacks[1](Damage Boost-25%), or Move away(50%)
         if(distance<6){
             if(Math.random()<0.50){
-                position+=5;
+                move(player, false, 5);
             }
             else{
                 attacks[random.nextInt(2)].performAttack(this, enemies);
@@ -51,7 +51,7 @@ public class Cleric extends Enemy{
                 attacks[0].performAttack(this, enemies);
             }
             else{
-                position+=5;
+                move(player, false, 5);
             }
         }
     }

@@ -32,22 +32,18 @@ public class Archer extends Enemy{
                 attacks[0].performAttack(this, player);
             }
             else{
-                position+=5;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 5);
             }
         }
         else if(distance>=4 && distance<15){
             if(Math.random()<0.80){
                 attacks[0].performAttack(this, player);
             }
-            else{
-                position+=5;
-                System.out.println(getName() + " moved away.");
-            }
+            else
+                move(player, false, 5);
         }
         else{
-            position-=5;
-            System.out.println(getName() + " moved closer.");
+            move(player, false, 5);
         }
     }
 }

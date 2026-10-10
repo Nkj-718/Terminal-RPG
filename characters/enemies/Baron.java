@@ -59,8 +59,7 @@ public class Baron extends Enemy{
             else if(value>=0.90 && value<0.95)
                 attacks[3].performAttack(this, player);
             else{
-                position+=4;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 4);
             }
         }
         else if(distance>=6 && distance<15){
@@ -72,8 +71,7 @@ public class Baron extends Enemy{
             else if(value>=0.20 && value<0.70)
                 attacks[2].performAttack(this, player);
             else{
-                position-=4;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 4);
             }
         }
         else{
@@ -81,8 +79,7 @@ public class Baron extends Enemy{
             if(Math.random()<0.30)
                 attacks[0].performAttack(this, player);
             else{
-                position-=4;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 4);
             }
         }
     }

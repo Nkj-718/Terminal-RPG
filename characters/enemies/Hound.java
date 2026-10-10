@@ -37,12 +37,10 @@ public class Hound extends Enemy{
             else if(value>=0.60 && value<0.80)
                 attacks[2].performAttack(this, player);
             else if(value>=0.80 && value<0.90){
-                position-=5;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 5);
             }
             else{
-                position+=4;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 4);
             }
         }
         //Perform either attacks[1](Fear Manifest-50%), attacks[2](Howl-30%), Move away(5%) or move closer(15%)
@@ -53,12 +51,10 @@ public class Hound extends Enemy{
             else if(value>=0.50 && value<0.80)
                 attacks[2].performAttack(this, player);
             else if(value>=0.80 && value<0.85){
-                position+=4;
-                System.out.println(getName() + " moved away.");
+                move(player, false, 4);
             }
             else{
-                position-=5;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 5);
             }
         }
         else{
@@ -66,8 +62,7 @@ public class Hound extends Enemy{
             if(value<0.40)
                 attacks[2].performAttack(this, player);
             else{
-                position-=4;
-                System.out.println(getName() + " moved closer.");
+                move(player, true, 4);
             }
         }
     }

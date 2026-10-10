@@ -31,8 +31,7 @@ public class Knight extends Enemy{
             attacks[0].performAttack(this, player);
         }
         else{
-            position-=3;
-            System.out.println(getName() + " moved closer.");
+            move(player, true, 3);
         }
     }
 }
