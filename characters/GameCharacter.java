@@ -28,8 +28,6 @@ public class GameCharacter {
 
     public void chooseAction(Enemy[] enemies, Player player){}
 
-    public void setPosition(String direction){}
-
     public int getPosition(){
         return position;
     }
