@@ -68,12 +68,65 @@ public class Player extends GameCharacter{
         isStunned=false;
     }
 
-    @Override 
-    public void setPosition(String direction){
-        if(direction.equals("away"))
-            position-=4;
-        else if(direction.equals("close"))
-            position+=4;
+    public void setPosition(Enemy target, String direction){
+        if(direction.equals("away")){
+
+            if(position<target.getPosition())
+                position-=4;
+            else if(position>target.getPosition())
+                position+=4;
+            else{
+                int moveDirection;
+                do{
+                    System.out.println("\nChoose Direction:");
+                    System.out.println("1. Left     2. Right");
+                    System.out.print("Direction: ");
+                    moveDirection=sc.nextInt();
+
+                    switch(moveDirection){
+                        case 1:
+                            position-=4;
+                            break;
+                        case 2:
+                            position+=4;
+                            break;
+                        default:
+                            System.out.println("\n! Please Choose a valid direction to move into... !");
+                            break;
+                    }
+                }while(moveDirection!=1 && moveDirection!=2);
+                
+            }
+        }
+        else if(direction.equals("close")){
+
+            if(position<target.getPosition())
+                position+=4;
+            else if(position>target.getPosition())
+                position-=4;
+            else{
+                int moveDirection;
+                do{
+                    System.out.println("\nChoose Direction to move:");
+                    System.out.println("1. Left     2. Right");
+                    System.out.print("Direction: ");
+                    moveDirection=sc.nextInt();
+
+                    switch(moveDirection){
+                        case 1:
+                            position-=4;
+                            break;
+                        case 2:
+                            position+=4;
+                            break;
+                        default:
+                            System.out.println("\n! Please Choose a valid direction to move into... !");
+                            break;
+                    }
+                }while(moveDirection!=1 && moveDirection!=2);
+                
+            }
+        }
     }
 
     public String getWeapon(){
@@ -237,8 +290,9 @@ public class Player extends GameCharacter{
                 case 3:
                     if(fight.getAP() >= 1){
                         fight.decreaseAP(1);
-                        setPosition("away");
-                        System.out.println(getName() + " moved away.");
+                        Enemy target=targetSelection(fight.getEnemyList());
+                        setPosition(target, "away");
+                        System.out.println(getName() + " moved 4m away.");
                         return;
                     }
                     System.out.println("Not enough AP! You need 1 AP to move.");
@@ -247,8 +301,9 @@ public class Player extends GameCharacter{
                 case 4:
                      if(fight.getAP() >= 1){
                         fight.decreaseAP(1);
-                        setPosition("close");
-                        System.out.println(getName() + " moved closer.");
+                        Enemy target=targetSelection(fight.getEnemyList());
+                        setPosition(target, "close");
+                        System.out.println(getName() + " moved 4m closer.");
                         return;
                     }
                     System.out.println("Not enough AP! You need 1 AP to move.");
